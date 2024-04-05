@@ -1,27 +1,25 @@
 ---
 - summary: |
-    Проверка возможности запустить тестовую игру без регистрации
+    Проверка создания игры без регистрации
   requirement: |
     Можно запустить тестовую игру без регистрации
   prerequisites: |
-    no data
+    Пользователь не авторизован
   test-data: |
     no data
   steps:
-    - Нажать кнопку Try simple battle на лендинге сайта
-    - Обратить внимание работоспособна ли открывшаяся страница
+    - Нажать на Try Simple battle
   expected-result: |
-    Тестовая игра открылась, страница работоспособна
+    Игра без регистрации успешно создана
 
 - summary: |
-    Проверка функции регистрация пользователя
+    Проверка регистрация пользователя
   requirement: |
     При вводе требуемых данных пользователь регистрируется на сайте
   prerequisites: |
     Открыта форма Sign up
   test-data: |
-    - Придумать Nickname (от 3 до 16 знаков, только латинские буквы, цифры и нижнее подчеркивание)
-    - Придумать Password (от 6 до 16 знаков)
+    no data
   steps:
     - Ввести Nickname
     - Ввести валидный Email
@@ -29,10 +27,10 @@
     - Ввести Password Confirmation
     - Нажать на Submit
   expected-result: |
-    Пользователь должен войти в систему
+    Пользователь успешно зарегистрирован
 
 - summary: |
-    Проверка входа пользователя с существующими логином и паролем
+    Проверка успешной авторизации
   requirement: |
     При верном вводе логина и пароля пользователь должен войти в систему
   prerequisites: |
@@ -44,55 +42,55 @@
     - Ввести Password
     - Нажать Submit
   expected-result: |
-    Пользователь должен войти в систему
+    Пользователь успешно авторизован
 
 - summary: |
-    Проверка входа пользователя с существующим аккаунтом Github
+    Проверка авторизации через Github
   requirement: |
     Пользователь должен войти в систему с существующим аккаунтом Github
   prerequisites: |
     - Зарегистрирован аккаунт на Github
+    - Выполнен вход в аккаунт GitHub
     - Открыта форма Sign in
   test-data: |
-    - Зарегистрированный аккаунт на Github
+    no data
   steps:
     - Нажать Sign in with Github
-    - Ввести запрашиваемые данные аккаунта Github на открывшейся странице
   expected-result: |
-    Пользователь должен войти в систему
+    Пользователь успешно авторизован
 
 - summary: |
-    Проверка входа пользователя с существующим аккаунтом Discord
+    Проверка авторизации через Discord
   requirement: |
     Пользователь должен войти в систему с существующим аккаунтом Discord
   prerequisites: |
     - Зарегистрирован аккаунт на Discord
+    - Выполнен вход в аккаунт Discord
     - Открыта форма Sign in
   test-data: |
-    - Зарегистрированный аккаунт на Discord
+    no data
   steps:
     - Нажать Sign in with Discord
-    - Ввести запрашиваемые данные аккаунта Discord на открывшейся странице
   expected-result: |
-    Пользователь должен войти в систему
+    Пользователь успешно авторизован
 
 - summary: |
-    Проверка входа пользователя с несуществующими логином и паролем
+    Проверка авторизации незарегистрированного пользователя
   requirement: |
     При вводе неправильного логина или пароля пользователь должен получить сообщение об ошибке
   prerequisites: |
     Открыта форма Sign in
   test-data: |
-    Email = email@yandex.ru Password = password
+    no data
   steps:
     - Ввести Email
     - Ввести Password
     - Нажать Submit
   expected-result: |
-    Система должна выдать уведомление об ошибке
+    Пользователь не авторизован
 
 - summary: |
-    Проверка возможности входа пользователя, если он забыл пароль
+    Проверка восстановления пароля
   requirement: |
     Система позволяет войти, сделав сброс пароля
   prerequisites: |
@@ -109,13 +107,13 @@
     Произошел сброс пароля и вход в систему c новым паролем
 
 - summary: |
-    Проверка возможности пользователя создать игру
+    Проверка создания игры с ботом
   requirement: |
     Пользователь может создать игру
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -128,9 +126,9 @@
   requirement: |
     Пользователь может выбрать уровень сложности игры
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - В открывшемся окне выбрать любой уровень сложности
@@ -145,9 +143,9 @@
   requirement: |
     Пользователь может отправить запрос на игру любому игроку
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With other user
@@ -177,56 +175,44 @@
   requirement: |
     Пользователь может отправить запрос на игру другу
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a friend
     - Выбрать аккаунт в Choose opponent
     - Нажать Create invite
-  expected-result: |
+  expected-result:
     Создался инвайт на игру c другом
 
 - summary: |
-    Проверка возможности отправить запрос на игру боту
+    Проверка принятия инвайта от игрока
   requirement: |
-    Пользователь может отправить запрос на игру боту
-  prerequisites: |
-    Пользователь залогинился в системе
-  test-data: |
-    Email = testt@yandex.ru Password = 123456
-  steps:
-    - Нажать кнопку Create a game
-    - Нажать кнопку With a bot
-    - Нажать Create battle
-  expected-result: |
-    Игра создалась
-
-- summary: |
-    Проверка возможности принять запрос на игру от любого игрока или друга, либо
-    отклонить запрос
-  requirement: |
-    Пользователь может принять запрос на игру, либо отклонить запрос
+    Пользователь может принять запрос на игру
   prerequisites: |
     Залогиниться в системе с двух разных аккаунтов
   test-data: |
     Пользователь №1: Email = testt@yandex.ru Password = 123456
     Пользователь №2: Email = tester@yandex.ru Password = 123456
   steps:
-    - Пользователю № 1 нажать кнопку Create a game, в открывшемся окне нажать Create battle
-    - Пользователю № 2 в шапке страницы нажать на уведомление об инвайте и сделать accept или decline инвайта
+    - Пользователю № 1 нажать кнопку Create a game
+    - Выбрать With a friend
+    - В Choose opponent выбрать Пользователя №2
+    - Нажать Create invite
+    - Пользователю № 2 в шапке страницы нажать на уведомление об инвайте
+    - Нажать accept invite
   expected-result: |
-    Пользователь №2 смог принять или отклонить игру
+    Пользователь №2 смог принять инвайт
 
 - summary: |
     Проверка возможности установить таймер в игре
   requirement: |
     Пользователь может установить таймер
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - В Time control выбрать кол-во минут, на которое надо установить таймер
@@ -241,9 +227,9 @@
   requirement: |
     Пользователь может выбрать задание
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - В Choose task by name or tags выбрать любое задание
@@ -258,9 +244,9 @@
   requirement: |
     В игре есть описание задания на двух языках — русском и английском
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -274,9 +260,9 @@
   requirement: |
     Завершенная игра доступна в записи
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Перейти во вкладку History на главной странице сайта
     - Нажать Show на рандомной битве
@@ -288,9 +274,9 @@
   requirement: |
     В Leaderboard на главной странице можно смотреть рейтинг игроков за неделю, месяц и за все время
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - В Leaderboard на главной странице переключить вкладки Week, Month, All
     - Обратить внимание есть ли данные в этих вкладках и как они меняются
@@ -303,9 +289,9 @@
   requirement: |
     Текст задания в игре нельзя скопировать
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -319,9 +305,9 @@
   requirement: |
     Любому игроку онлайн можно отправить сообщение в директ
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - В окне Online нажать на значок конверта Send message
     - Нажать на рандомного игрока
@@ -335,9 +321,9 @@
   requirement: |
     В игре есть возможность сдаться и завершить игру
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -353,9 +339,9 @@
   requirement: |
     В игре есть возможность перезагрузить редактор
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -370,9 +356,9 @@
   requirement: |
     В игре есть возможность выбрать язык кодирования
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
@@ -386,9 +372,9 @@
   requirement: |
     В игре можно запустить проверку решения
   prerequisites: |
-    Пользователь залогинился в системе
+    no data
   test-data: |
-    Email = testt@yandex.ru Password = 123456
+    no data
   steps:
     - Нажать кнопку Create a game
     - Нажать кнопку With a bot
